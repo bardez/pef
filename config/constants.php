@@ -7,5 +7,5 @@
     define('PORT', '3306');
 
     // SYSTEM VARS
-    define('DEFAULT_URL', 'http://localhost:5000/');
+    define('DEFAULT_URL', 'http://localhost:5000/');//asdasdf
 ?>
