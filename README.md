@@ -1,7 +1,7 @@
-# pef
-Sistema de Peticionamento 
+# PEF
+## Sistema de Peticionamento 
 
-Lucas Zanon
-Renam Mello da Silva
-Thiago Bardez
-Lucas Renatto
+* Lucas Zanon
+* Renam Mello da Silva
+* Thiago Bardez
+* Lucas Renatto
