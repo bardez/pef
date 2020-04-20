@@ -5,3 +5,4 @@
 * Renam Mello da Silva
 * Thiago Bardez
 * Lucas Renatto
+* Fábio Caetano 
