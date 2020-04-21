@@ -21,7 +21,7 @@
   </div>
 
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://www.pef.jus.br> P.E.F.</a>
+    <a href="https://www.pef.jus.br"> P.E.F.</a>
   </div>
 
 </footer>

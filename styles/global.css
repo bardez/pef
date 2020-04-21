@@ -38,3 +38,7 @@ footer .footer-copyright{
 footer .center{
     text-align: center;
 }
+
+footer a{
+    color: white;
+}

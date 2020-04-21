@@ -18,14 +18,31 @@
     <div class="container p-2">
         <h4 class="custom-form-title">CADASTRO DE PROFISSÕES</h4>
         <hr>
-        <form>
+        <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
-                <label for="profissao">Nova Profissão:</label>
-                <input type="text" name='profissao' class="form-control" id="profissao" placeholder="Digite a profissão">
+                <label for="Nome">Nova Profissão:</label>
+                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a profissão">
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
+    <?php 
+    $nome = $_POST['Nome'];
+    if(!empty($nome)){
+        $sqlSelect = "SELECT * FROM PROFISSAO WHERE Nome='$nome'";
+        $responseSelect = mysqli_query($connection, $sqlSelect);
+        $numRowsSelect = mysqli_num_rows($responseSelect);
+        if($numRowsSelect> 0)
+        {
+            echo "Profissão '$nome' já cadastrada";
+        }
+        else {
+            $sqlInsert = "INSERT INTO PROFISSAO (Nome) VALUES ('$nome')";
+            $response = mysqli_query($connection, $sqlInsert);
+            echo "Profissão '$nome' cadstrada com sucesso!";
+        }
+    }
+    ?>
     <!-- FIM DO CONTEUDO DA PAGINA -->
     <?php include('../components/footer.php'); ?>
 </body>

@@ -26,18 +26,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Programador</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Arquiteto</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Médico</td>
-                </tr>
+                <?php
+                    $sql = "SELECT * FROM PROFISSAO";
+                    $response = mysqli_query($connection, $sql);
+                    $numRows = mysqli_num_rows($response);
+                    if($response && $numRows > 0)
+                    {
+                        while ($line = mysqli_fetch_array($response))
+                        {
+                            $id = $line['Codigo'];
+                            $nome = $line['Nome'];
+                            echo "<tr>
+                                    <th scope='row'>$id</th>
+                                    <td>$nome</td>
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr>
+                                <th rowspan='2'> Nenhum regsitro encontrado.</th>
+                            </tr>";
+                    }
+                ?>
             </tbody>
         </table>
     </div>
