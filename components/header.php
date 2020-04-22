@@ -16,8 +16,8 @@
             FORO
         </button>
         <div class="dropdown-menu" aria-labelledby='DDForo'>
-            <a href="<?php echo DEFAULT_URL;?>listing/occupation-foroL.php" class="dropdown-item" >Mostrar todos</a>
-            <a href="<?php echo DEFAULT_URL;?>registration/occupation-foroL.php" class="dropdown-item" >Novo Foro</a>
+            <a href="<?php echo DEFAULT_URL;?>listing/forum.php" class="dropdown-item" >Mostrar todos</a>
+            <a href="<?php echo DEFAULT_URL;?>registration/forum.php" class="dropdown-item" >Novo Foro</a>
         </div>
     </div>
 
@@ -26,8 +26,8 @@
             COMPETÊNCIA
         </button>
         <div class="dropdown-menu" aria-labelledby='DDCompetencias'>
-            <a href="<?php echo DEFAULT_URL;?>listing/occupation-competencia.php" class="dropdown-item" >Mostrar todas</a>
-            <a href="<?php echo DEFAULT_URL;?>registration/occupation-competencia.php" class="dropdown-item" >Nova Competência</a>
+            <a href="<?php echo DEFAULT_URL;?>listing/competence.php" class="dropdown-item" >Mostrar todas</a>
+            <a href="<?php echo DEFAULT_URL;?>registration/competence.php" class="dropdown-item" >Nova Competência</a>
         </div>
     </div>
 </header>
