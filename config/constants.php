@@ -3,7 +3,7 @@
     define('HOST', '127.0.0.1');
     define('DATABASE', 'pef');
     define('USER', 'root');
-    define('PASSWORD', 'kiko1234');
+    define('PASSWORD', 'cebola');
     define('PORT', '3306');
 
     // SYSTEM VARS

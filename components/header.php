@@ -12,12 +12,22 @@
     </div>
 
     <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle" type="button" id="DDProfissoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="DDForo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             FORO
         </button>
-        <div class="dropdown-menu" aria-labelledby='DDProfissoes'>
+        <div class="dropdown-menu" aria-labelledby='DDForo'>
             <a href="<?php echo DEFAULT_URL;?>listing/occupation-foroL.php" class="dropdown-item" >Mostrar todos</a>
             <a href="<?php echo DEFAULT_URL;?>registration/occupation-foroL.php" class="dropdown-item" >Novo Foro</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="DDCompetencias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            COMPETÊNCIA
+        </button>
+        <div class="dropdown-menu" aria-labelledby='DDCompetencias'>
+            <a href="<?php echo DEFAULT_URL;?>listing/occupation-competencia.php" class="dropdown-item" >Mostrar todas</a>
+            <a href="<?php echo DEFAULT_URL;?>registration/occupation-competencia.php" class="dropdown-item" >Nova Competência</a>
         </div>
     </div>
 </header>
