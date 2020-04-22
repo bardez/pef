@@ -16,33 +16,40 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">CADASTRO DE PROFISSÕES</h4>
+        <h4 class="custom-form-title">LISTA DE FORO</h4>
         <hr>
-        <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
-            <div class="form-group">
-                <label for="Nome">Nova Profissão:</label>
-                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a profissão">
-            </div>
-            <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
-        </form>
+        <table class="table table-stripped">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Foro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $sql = "SELECT * FROM FORO";
+                    $response = mysqli_query($connection, $sql);
+                    $numRows = mysqli_num_rows($response);
+                    if($response && $numRows > 0)
+                    {
+                        while ($line = mysqli_fetch_array($response))
+                        {
+                            $id = $line['Codigo'];
+                            $nome = $line['Nome'];
+                            echo "<tr>
+                                    <th scope='row'>$id</th>
+                                    <td>$nome</td>
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr>
+                                <th rowspan='2'> Nenhum foro encontrado.</th>
+                            </tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
     </div>
-    <?php 
-    $nome = $_POST['Nome'];
-    if(!empty($nome)){
-        $sqlSelect = "SELECT * FROM PROFISSAO WHERE Nome='$nome'";
-        $responseSelect = mysqli_query($connection, $sqlSelect);
-        $numRowsSelect = mysqli_num_rows($responseSelect);
-        if($numRowsSelect> 0)
-        {
-            echo "Profissão '$nome' já cadastrada";
-        }
-        else {
-            $sqlInsert = "INSERT INTO PROFISSAO (Nome) VALUES ('$nome')";
-            $response = mysqli_query($connection, $sqlInsert);
-            echo "Profissão '$nome' cadastrada com sucesso!";
-        }
-    }
-    ?>
     <!-- FIM DO CONTEUDO DA PAGINA -->
     <?php include('../components/footer.php'); ?>
 </body>

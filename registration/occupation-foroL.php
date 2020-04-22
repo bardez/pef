@@ -16,12 +16,12 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">CADASTRO DE PROFISSÕES</h4>
+        <h4 class="custom-form-title">CADASTRO DE FORO</h4>
         <hr>
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
-                <label for="Nome">Nova Profissão:</label>
-                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a profissão">
+                <label for="Nome">Novo Foro:</label>
+                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite o Foro">
             </div>
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
         </form>
@@ -29,17 +29,17 @@
     <?php 
     $nome = $_POST['Nome'];
     if(!empty($nome)){
-        $sqlSelect = "SELECT * FROM PROFISSAO WHERE Nome='$nome'";
+        $sqlSelect = "SELECT * FROM FORO WHERE Nome='$nome'";
         $responseSelect = mysqli_query($connection, $sqlSelect);
         $numRowsSelect = mysqli_num_rows($responseSelect);
         if($numRowsSelect> 0)
         {
-            echo "Profissão '$nome' já cadastrada";
+            echo "Foro '$nome' já cadastrado";
         }
         else {
-            $sqlInsert = "INSERT INTO PROFISSAO (Nome) VALUES ('$nome')";
+            $sqlInsert = "INSERT INTO FORO (Nome) VALUES ('$nome')";
             $response = mysqli_query($connection, $sqlInsert);
-            echo "Profissão '$nome' cadastrada com sucesso!";
+            echo "Foro '$nome' cadastrado com sucesso!";
         }
     }
     ?>
