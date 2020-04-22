@@ -16,7 +16,7 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">LIiSTA DE COMPETÊNCIAS</h4>
+        <h4 class="custom-form-title">LISTA DE COMPETÊNCIAS</h4>
         <hr>
         <table class="table table-stripped">
             <thead class="thead-dark">
