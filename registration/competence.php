@@ -20,7 +20,7 @@
         <hr>
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
-                <label for="Nome">Nova Competência:</label>
+                <label for="Nome">Novaa Competência:</label>
                 <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a Competência">
             </div>
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
