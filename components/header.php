@@ -30,4 +30,14 @@
             <a href="<?php echo DEFAULT_URL;?>registration/competence.php" class="dropdown-item" >Nova Competência</a>
         </div>
     </div>
+
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="DDPartes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            PARTES
+        </button>
+        <div class="dropdown-menu" aria-labelledby='DDPartes'>
+            <a href="<?php echo DEFAULT_URL;?>listing/part.php" class="dropdown-item" >Mostrar todas</a>
+            <a href="<?php echo DEFAULT_URL;?>registration/part.php" class="dropdown-item" >Nova Parte</a>
+        </div>
+    </div>
 </header>
