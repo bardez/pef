@@ -43,7 +43,8 @@
         }
     }
     ?>
-    <!-- FIM DO CONTEUDO DA PAGINA -->
+    <!-- FIM DO CONTEUDO DA PAGINA aaaaaaaaaa-->
+
     <?php include('../components/footer.php'); ?>
 </body>
 </html>
