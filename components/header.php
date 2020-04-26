@@ -20,4 +20,25 @@
             <a href="<?php echo DEFAULT_URL;?>registration/occupation-foroL.php" class="dropdown-item" >Novo Foro</a>
         </div>
     </div>
+
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="DDProfissoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            DOCUMENTOS
+        </button>
+        <div class="dropdown-menu" aria-labelledby='DDProfissoes'>
+            <a href="<?php echo DEFAULT_URL;?>listing/documentos.php" class="dropdown-item" >Mostrar todos</a>
+            <a href="<?php echo DEFAULT_URL;?>registration/documentos.php" class="dropdown-item" >Novo Documentos</a>
+        </div>
+    </div>
+
+    
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="DDProfissoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            CLASSES DE PROCESSOS
+        </button>
+        <div class="dropdown-menu" aria-labelledby='DDProfissoes'>
+            <a href="<?php echo DEFAULT_URL;?>listing/class_process.php" class="dropdown-item" >Mostrar todos</a>
+            <a href="<?php echo DEFAULT_URL;?>registration/class_process.php" class="dropdown-item" >Nova Classe de processo</a>
+        </div>
+    </div>
 </header>
