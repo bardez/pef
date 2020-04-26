@@ -6,6 +6,6 @@
     define('PASSWORD', '123');
     define('PORT', '3306');
     <select name="ss" id="ss"></select>
-    // SYSTEM VARS
+    // SYSTEM VARS sss
     define('DEFAULT_URL', 'http://localhost:5001/');//asdasdf
 ?>
