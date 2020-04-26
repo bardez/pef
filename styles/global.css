@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #ececec;
+}
+
+body .container{
+    height: calc(100% - 197px - 120px);
+}
+
+header {
+    padding: 20px;
+    background: #ececec;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn {
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.custom-form-title {
+}
+
+footer {
+    margin-top: 20px;
+    background-color: darkgray;
+    color: white;
+}
+
+footer .footer-copyright{
+    background-color: grey;
+}
+
+footer .center{
+    text-align: center;
+}
+
+footer a{
+    color: white;
+}

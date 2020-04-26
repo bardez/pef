@@ -15,9 +15,34 @@
     <?php include('../config/connection.php'); ?>
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
-    <div class='container'>
-        <!-- O conteúdo vai aqui -->
+    <div class="container p-2">
+        <h4 class="custom-form-title">CADASTRO DE FORO</h4>
+        <hr>
+        <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
+            <div class="form-group">
+                <label for="Nome">Novo Foro:</label>
+                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite o Foro">
+            </div>
+            <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
+        </form>
     </div>
+    <?php 
+    $nome = $_POST['Nome'];
+    if(!empty($nome)){
+        $sqlSelect = "SELECT * FROM FORO WHERE Nome='$nome'";
+        $responseSelect = mysqli_query($connection, $sqlSelect);
+        $numRowsSelect = mysqli_num_rows($responseSelect);
+        if($numRowsSelect> 0)
+        {
+            echo "Foro '$nome' já cadastrado";
+        }
+        else {
+            $sqlInsert = "INSERT INTO FORO (Nome) VALUES ('$nome')";
+            $response = mysqli_query($connection, $sqlInsert);
+            echo "Foro '$nome' cadastrado com sucesso!";
+        }
+    }
+    ?>
     <!-- FIM DO CONTEUDO DA PAGINA -->
     <?php include('../components/footer.php'); ?>
 </body>

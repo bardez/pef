@@ -1,8 +1,8 @@
-# pef
-Sistema de Peticionamento 
+# PEF
+## Sistema de Peticionamento 
 
-Lucas Zanon
-Sistema de Peticionamento Eletrônico
-
-Renam Mello da Silva
-Thiago Bardez
+* Lucas Zanon
+* Renam Mello da Silva
+* Thiago Bardez
+* Lucas Renatto
+* Fábio Caetano 

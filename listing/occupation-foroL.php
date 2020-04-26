@@ -16,18 +16,18 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">LISTA DE PROFISSÕES</h4>
+        <h4 class="custom-form-title">LISTA DE FORO</h4>
         <hr>
         <table class="table table-stripped">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Profissão</th>
+                <th scope="col">Foro</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM PROFISSAO";
+                    $sql = "SELECT * FROM FORO";
                     $response = mysqli_query($connection, $sql);
                     $numRows = mysqli_num_rows($response);
                     if($response && $numRows > 0)
@@ -43,7 +43,7 @@
                         }
                     } else {
                         echo "<tr>
-                                <th rowspan='2'> Nenhum regsitro encontrado.</th>
+                                <th rowspan='2'> Nenhum foro encontrado.</th>
                             </tr>";
                     }
                 ?>
