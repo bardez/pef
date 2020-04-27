@@ -23,6 +23,29 @@
                 <label for="Nome">Nova Competência:</label>
                 <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a Competência">
             </div>
+            <div class="form-group"> 
+            <div class="col">
+                    <div class="form-group">
+                        <label for="foro">Foro:</label>
+                        <select id="foro" name='foro' class="form-control">
+                            <option value="" selected disabled>Selecione</option>
+                            <?php 
+                                $sql = "SELECT * FROM FORO";
+                                $response = mysqli_query($connection, $sql);
+                                $numRows = mysqli_num_rows($response);
+                                if($response && $numRows > 0)
+                                {
+                                    while ($line = mysqli_fetch_array($response))
+                                    {
+                                        $id = $line['Codigo'];
+                                        $value = $line['Nome'];
+                                        echo "<option value='$id'>$value</option>";
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
@@ -43,6 +66,9 @@
         }
     }
     ?>
+
+         
+
     <!-- FIM DO CONTEUDO DA PAGINA -->
     <?php include('../components/footer.php'); ?>
 </body>

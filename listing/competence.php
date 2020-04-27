@@ -23,11 +23,19 @@
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Competência</th>
+                <th scope="col">Foro</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM COMPETENCIA";
+                   $sql = "SELECT
+                   C.*, 
+                   f.Nome as FORO
+                
+               FROM COMPETENCIA C
+               INNER JOIN FORO f ON f.Codigo = c.FORO_Codigo";
+              
+                      
                     $response = mysqli_query($connection, $sql);
                     $numRows = mysqli_num_rows($response);
                     if($response && $numRows > 0)
@@ -36,14 +44,17 @@
                         {
                             $id = $line['Codigo'];
                             $nome = $line['Nome'];
+                            $foro =$line['FORO'];
+                            
                             echo "<tr>
                                     <th scope='row'>$id</th>
                                     <td>$nome</td>
+                                    <td>$foro</td>
                                 </tr>";
                         }
                     } else {
                         echo "<tr>
-                                <th rowspan='2'> Nenhuma competência encontrada.</th>
+                        <td colspan='3'> Nenhuma competência encontrada.</th>
                             </tr>";
                     }
                 ?>
