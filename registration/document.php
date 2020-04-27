@@ -16,21 +16,19 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">CADASTRO DE COMPETÊNCIA</h4>
+        <h4 class="custom-form-title">CADASTRO DE DOCUMENTOS</h4>
         <hr>
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
-                <label for="Nome">Nova Competência:</label>
-                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a Competência">
+                <label for="Nome">Novo Documento:</label>
+                <input type="file" name='Nome' class="form-control" id="Arquivo" placeholder="Digite o Documento">
             </div>
-            <div class="form-group"> 
-            <div class="col">
                     <div class="form-group">
-                        <label for="foro">Foro:</label>
-                        <select id="foro" name='foro' class="form-control">
+                        <label for="tipo">Tipo:</label>
+                        <select id="tipo" name='tipo' class="form-control">
                             <option value="" selected disabled>Selecione</option>
                             <?php 
-                                $sql = "SELECT * FROM FORO";
+                                $sql = "SELECT * FROM TIPO";
                                 $response = mysqli_query($connection, $sql);
                                 $numRows = mysqli_num_rows($response);
                                 if($response && $numRows > 0)
@@ -45,30 +43,29 @@
                             ?>
                         </select>
                     </div>
-                </div>
+            
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
         </form>
+
     </div>
+
     <?php 
     $nome = $_POST['Nome'];
     if(!empty($nome)){
-        $sqlSelect = "SELECT * FROM COMPETENCIA WHERE Nome='$nome'";
+        $sqlSelect = "SELECT * FROM DOCUMENTOS WHERE Nome='$nome'";
         $responseSelect = mysqli_query($connection, $sqlSelect);
         $numRowsSelect = mysqli_num_rows($responseSelect);
         if($numRowsSelect> 0)
         {
-            echo "Competência '$nome' já cadastrada";
+            echo "Documento '$nome' já cadastrado";
         }
         else {
-            $sqlInsert = "INSERT INTO COMPETENCIA (Nome) VALUES ('$nome')";
+            $sqlInsert = "INSERT INTO DOCUMENTO (Nome) VALUES ('$nome')";
             $response = mysqli_query($connection, $sqlInsert);
-            echo "Competência '$nome' cadastrada com sucesso!";
+            echo "Documento '$nome' cadastrado com sucesso!";
         }
     }
     ?>
-
-         
-
     <!-- FIM DO CONTEUDO DA PAGINA -->
     <?php include('../components/footer.php'); ?>
 </body>

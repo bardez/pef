@@ -16,59 +16,33 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">CADASTRO DE COMPETÊNCIA</h4>
+        <h4 class="custom-form-title">CADASTRO DE PARTICIPAÇÕES</h4>
         <hr>
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
-                <label for="Nome">Nova Competência:</label>
-                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a Competência">
+                <label for="Nome">Participação:</label>
+                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a Participação">
             </div>
-            <div class="form-group"> 
-            <div class="col">
-                    <div class="form-group">
-                        <label for="foro">Foro:</label>
-                        <select id="foro" name='foro' class="form-control">
-                            <option value="" selected disabled>Selecione</option>
-                            <?php 
-                                $sql = "SELECT * FROM FORO";
-                                $response = mysqli_query($connection, $sql);
-                                $numRows = mysqli_num_rows($response);
-                                if($response && $numRows > 0)
-                                {
-                                    while ($line = mysqli_fetch_array($response))
-                                    {
-                                        $id = $line['Codigo'];
-                                        $value = $line['Nome'];
-                                        echo "<option value='$id'>$value</option>";
-                                    }
-                                }
-                            ?>
-                        </select>
-                    </div>
-                </div>
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
     <?php 
     $nome = $_POST['Nome'];
     if(!empty($nome)){
-        $sqlSelect = "SELECT * FROM COMPETENCIA WHERE Nome='$nome'";
+        $sqlSelect = "SELECT * FROM PARTIPACAO WHERE Nome='$nome'";
         $responseSelect = mysqli_query($connection, $sqlSelect);
         $numRowsSelect = mysqli_num_rows($responseSelect);
         if($numRowsSelect> 0)
         {
-            echo "Competência '$nome' já cadastrada";
+            echo "Participação '$nome' já cadastrada";
         }
         else {
-            $sqlInsert = "INSERT INTO COMPETENCIA (Nome) VALUES ('$nome')";
+            $sqlInsert = "INSERT INTO PARTIPACAO (Nome) VALUES ('$nome')";
             $response = mysqli_query($connection, $sqlInsert);
-            echo "Competência '$nome' cadastrada com sucesso!";
+            echo "Participação '$nome' cadastrada com sucesso!";
         }
     }
     ?>
-
-         
-
     <!-- FIM DO CONTEUDO DA PAGINA -->
     <?php include('../components/footer.php'); ?>
 </body>

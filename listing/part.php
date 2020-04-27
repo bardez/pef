@@ -50,46 +50,52 @@
                         INNER JOIN NACIONALIDADE n ON n.Codigo = pt.NACIONALIDADE_Codigo 
                         INNER JOIN PROFISSAO pf ON pf.Codigo = pt.PROFISSAO_Codigo";
                     $response = mysqli_query($connection, $sql);
-                    $numRows = mysqli_num_rows($response);
-                    if($response && $numRows > 0)
-                    {
-                        while ($line = mysqli_fetch_array($response))
+                    if($response){
+                        $numRows = mysqli_num_rows($response);
+                        if($numRows > 0)
                         {
-                            $id = $line['Codigo'];
-                            $pessoa = $line['Pessoa'];
-                            $cpf = $line['CPF'];
-                            $rg = $line['RG'];
-                            $orgao_emissor = $line['Orgao_emissor'];
-                            $nome = $line['Nome'];
-                            $genero = $line['Genero'];
-                            $cep = $line['CEP'];
-                            $numero = $line['Numero'];
-                            $complemento = $line['Complemento'];
-                            $participacao = $line['participacao'];
-                            $estado_civil = $line['estado_civil'];
-                            $nacionalidade = $line['nacionalidade'];
-                            $profissao = $line['profissao'];
+                            while ($line = mysqli_fetch_array($response))
+                            {
+                                $id = $line['Codigo'];
+                                $pessoa = $line['Pessoa'];
+                                $cpf = $line['CPF'];
+                                $rg = $line['RG'];
+                                $orgao_emissor = $line['Orgao_emissor'];
+                                $nome = $line['Nome'];
+                                $genero = $line['Genero'];
+                                $cep = $line['CEP'];
+                                $numero = $line['Numero'];
+                                $complemento = $line['Complemento'];
+                                $participacao = $line['participacao'];
+                                $estado_civil = $line['estado_civil'];
+                                $nacionalidade = $line['nacionalidade'];
+                                $profissao = $line['profissao'];
+                                echo "<tr>
+                                        <th scope='row'>$id</th>
+                                        <td>$pessoa</td>
+                                        <td>$cpf</td>
+                                        <td>$rg</td>
+                                        <td>$orgao_emissor</td>
+                                        <td>$nome</td>
+                                        <td>$genero</td>
+                                        <td>$cep</td>
+                                        <td>$numero</td>
+                                        <td>$complemento</td>
+                                        <td>$participacao</td>
+                                        <td>$estado_civil</td>
+                                        <td>$nacionalidade</td>
+                                        <td>$profissao</td>
+                                    </tr>";
+                            }
+                        } else {
                             echo "<tr>
-                                    <th scope='row'>$id</th>
-                                    <td>$pessoa</td>
-                                    <td>$cpf</td>
-                                    <td>$rg</td>
-                                    <td>$orgao_emissor</td>
-                                    <td>$nome</td>
-                                    <td>$genero</td>
-                                    <td>$cep</td>
-                                    <td>$numero</td>
-                                    <td>$complemento</td>
-                                    <td>$participacao</td>
-                                    <td>$estado_civil</td>
-                                    <td>$nacionalidade</td>
-                                    <td>$profissao</td>
+                                    <td colspan='13'> Nenhum regsitro encontrado.</td>
                                 </tr>";
                         }
                     } else {
                         echo "<tr>
-                                <td colspan='13'> Nenhum regsitro encontrado.</td>
-                            </tr>";
+                                    <td colspan='13'> Nenhum regsitro encontrado.</td>
+                                </tr>";
                     }
                 ?>
             </tbody>

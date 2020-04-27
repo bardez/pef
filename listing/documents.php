@@ -22,29 +22,47 @@
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Documentos</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Peticão incial de primeiro grau (Valor)</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM DOCUMENTOS";
+                   $sql = " SELECT
+                                d.*, 
+                                dc.Codigo,
+                                p.Valor_Acao as valor
+                            FROM DOCUMENTS d
+                            INNER JOIN DOCUMENTO dc ON p.Codigo = dc.DOCUMENTO_Codigo
+                            INNER JOIN PETICAO_INICIAL_DE_PRIMEIRO_GRAU p ON p.Codigo = d.PETICAO_INICIAL_DE_PRIMEIRO_GRAU_Codigo";
+              
+                      
                     $response = mysqli_query($connection, $sql);
-                    $numRows = mysqli_num_rows($response);
-                    if($response && $numRows > 0)
-                    {
-                        while ($line = mysqli_fetch_array($response))
+                    if($response){
+                        $numRows = mysqli_num_rows($response);
+                        if($numRows > 0)
                         {
-                            $id = $line['Codigo'];
-                            $nome = $line['Nome'];
+                            while ($line = mysqli_fetch_array($response))
+                            {
+                                $id = $line['Codigo'];
+                                $nome = $line['Documento'];
+                                $valor =$line['valor'];
+                                
+                                echo "<tr>
+                                        <th scope='row'>$id</th>
+                                        <td>$Documento</td>
+                                        <td>$valor</td>
+                                    </tr>";
+                            }
+                        } else {
                             echo "<tr>
-                                    <th scope='row'>$id</th>
-                                    <td>$nome</td>
+                            <td colspan='3'> Nenhum documento encontrado.</th>
                                 </tr>";
-                        }
+                        }   
                     } else {
                         echo "<tr>
-                                <th rowspan='2'> Nenhum documento encontrado.</th>
-                            </tr>";
+                            <td colspan='3'> Nenhum documento encontrado.</th>
+                                </tr>";
                     }
                 ?>
             </tbody>

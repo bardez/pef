@@ -16,28 +16,21 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">LISTA DE COMPETÊNCIAS</h4>
+        <h4 class="custom-form-title">LISTA DE ESTADO CIVIL</h4>
         <hr>
         <table class="table table-stripped">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Competência</th>
-                <th scope="col">Foro</th>
+                <th scope="col">Estado Civil</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                   $sql = "SELECT
-                   C.*, 
-                   f.Nome as FORO
-                
-               FROM COMPETENCIA C
-               INNER JOIN FORO f ON f.Codigo = c.FORO_Codigo";
-              
-                      
+                    $sql = "SELECT * FROM ESTADO_CIVIL";
                     $response = mysqli_query($connection, $sql);
-                    if($response){
+                    if( $respose )
+                    {
                         $numRows = mysqli_num_rows($response);
                         if($numRows > 0)
                         {
@@ -45,22 +38,19 @@
                             {
                                 $id = $line['Codigo'];
                                 $nome = $line['Nome'];
-                                $foro =$line['FORO'];
-                                
                                 echo "<tr>
                                         <th scope='row'>$id</th>
                                         <td>$nome</td>
-                                        <td>$foro</td>
                                     </tr>";
                             }
                         } else {
                             echo "<tr>
-                            <td colspan='3'> Nenhuma competência encontrada.</th>
+                                    <th colspan='2'> Nenhum regsitro encontrado.</th>
                                 </tr>";
-                        }   
+                        }
                     } else {
                         echo "<tr>
-                            <td colspan='3'> Nenhuma competência encontrada.</th>
+                                    <th colspan='2'> Nenhum regsitro encontrado.</th>
                                 </tr>";
                     }
                 ?>

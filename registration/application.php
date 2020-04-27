@@ -16,21 +16,21 @@
     <?php include('../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class="container p-2">
-        <h4 class="custom-form-title">CADASTRO DE COMPETÊNCIA</h4>
+        <h4 class="custom-form-title">CADASTRO DE PETIÇÃO INICIAL DE 1º GRAU</h4>
         <hr>
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
-                <label for="Nome">Nova Competência:</label>
-                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite a Competência">
+                <label for="valor">Valor da ação:</label>
+                <input type="number" name='valor' class="form-control" id="valor" placeholder="Digite o valor da ação">
             </div>
             <div class="form-group"> 
             <div class="col">
                     <div class="form-group">
-                        <label for="foro">Foro:</label>
-                        <select id="foro" name='foro' class="form-control">
+                        <label for="subject">Assunto Principal:</label>
+                        <select id="subject" name='subject' class="form-control">
                             <option value="" selected disabled>Selecione</option>
                             <?php 
-                                $sql = "SELECT * FROM FORO";
+                                $sql = "SELECT * FROM ASSUNTO_PRINCIPAL";
                                 $response = mysqli_query($connection, $sql);
                                 $numRows = mysqli_num_rows($response);
                                 if($response && $numRows > 0)
@@ -50,20 +50,20 @@
         </form>
     </div>
     <?php 
-    $nome = $_POST['Nome'];
-    if(!empty($nome)){
-        $sqlSelect = "SELECT * FROM COMPETENCIA WHERE Nome='$nome'";
-        $responseSelect = mysqli_query($connection, $sqlSelect);
-        $numRowsSelect = mysqli_num_rows($responseSelect);
-        if($numRowsSelect> 0)
-        {
-            echo "Competência '$nome' já cadastrada";
-        }
-        else {
-            $sqlInsert = "INSERT INTO COMPETENCIA (Nome) VALUES ('$nome')";
+    $valor = $_POST['valor'];
+    if(!empty($valor)){
+        // $sqlSelect = "SELECT * FROM PETICAO_INICIAL_PRIMEIRO_GRAU WHERE Nome='$nome'";
+        // $responseSelect = mysqli_query($connection, $sqlSelect);
+        // $numRowsSelect = mysqli_num_rows($responseSelect);
+        // if($numRowsSelect> 0)
+        // {
+        //     echo "Competência '$nome' já cadastrada";
+        // }
+        // else {
+            $sqlInsert = "INSERT INTO PETICAO_INICIAL_PRIMEIRO_GRAU (Valor_Acao, ASSUNTO_PRINCIPAL_Codigo) VALUES ($valor, '$assunto')";
             $response = mysqli_query($connection, $sqlInsert);
-            echo "Competência '$nome' cadastrada com sucesso!";
-        }
+            echo "PETIÇÃO INICIAL DE 1º GRAU de valor '$valor' cadastrada com sucesso!";
+        // }
     }
     ?>
 

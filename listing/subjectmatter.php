@@ -29,22 +29,28 @@
                 <?php
                     $sql = "SELECT * FROM Assunto";
                     $response = mysqli_query($connection, $sql);
-                    $numRows = mysqli_num_rows($response);
-                    if($response && $numRows > 0)
-                    {
-                        while ($line = mysqli_fetch_array($response))
+                    if($response){
+                        if($numRows > 0)
                         {
-                            $id = $line['Codigo'];
-                            $nome = $line['Nome'];
+                            $numRows = mysqli_num_rows($response);
+                            while ($line = mysqli_fetch_array($response))
+                            {
+                                $id = $line['Codigo'];
+                                $nome = $line['Nome'];
+                                echo "<tr>
+                                        <th scope='row'>$id</th>
+                                        <td>$nome</td>
+                                    </tr>";
+                            }
+                        } else {
                             echo "<tr>
-                                    <th scope='row'>$id</th>
-                                    <td>$nome</td>
+                                    <th colspan='2'> Nenhum assunto encontrado.</th>
                                 </tr>";
                         }
                     } else {
                         echo "<tr>
-                                <th rowspan='2'> Nenhum assunto encontrado.</th>
-                            </tr>";
+                                    <th colspan='2'> Nenhum assunto encontrado.</th>
+                                </tr>";
                     }
                 ?>
             </tbody>
