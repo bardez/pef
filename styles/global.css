@@ -14,14 +14,12 @@ header {
     background: #ececec;
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .btn {
     margin-left: 10px;
     padding: 10px;
-}
-
-.custom-form-title {
 }
 
 footer {
