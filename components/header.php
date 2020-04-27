@@ -56,8 +56,8 @@
             DOCUMENTOS
         </button>
         <div class="dropdown-menu" aria-labelledby='DDProfissoes'>
-            <a href="<?php echo DEFAULT_URL;?>listing/documentos.php" class="dropdown-item" >Mostrar todos</a>
-            <a href="<?php echo DEFAULT_URL;?>registration/documentos.php" class="dropdown-item" >Novo Documentos</a>
+            <a href="<?php echo DEFAULT_URL;?>listing/documents.php" class="dropdown-item" >Mostrar todos</a>
+            <a href="<?php echo DEFAULT_URL;?>registration/documents.php" class="dropdown-item" >Novo Documentos</a>
         </div>
     </div>
 

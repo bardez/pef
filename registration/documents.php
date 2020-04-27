@@ -21,11 +21,34 @@
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
                 <label for="Nome">Novo Documento:</label>
-                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite o Documento">
+                <input type="file" name='Nome' class="form-control" id="Arquivo" placeholder="Digite o Documento">
             </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo:</label>
+                        <select id="tipo" name='tipo' class="form-control">
+                            <option value="" selected disabled>Selecione</option>
+                            <?php 
+                                $sql = "SELECT * FROM TIPO";
+                                $response = mysqli_query($connection, $sql);
+                                $numRows = mysqli_num_rows($response);
+                                if($response && $numRows > 0)
+                                {
+                                    while ($line = mysqli_fetch_array($response))
+                                    {
+                                        $id = $line['Codigo'];
+                                        $value = $line['Nome'];
+                                        echo "<option value='$id'>$value</option>";
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+            
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
         </form>
+
     </div>
+
     <?php 
     $nome = $_POST['Nome'];
     if(!empty($nome)){
