@@ -21,8 +21,31 @@
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
             <div class="form-group">
                 <label for="Nome">NOVA CLASSE:</label>
-                <input type="text" name='Nome' class="form-control" id="Nome" placeholder="Digite o CLASSE DE PROCESSO">
+                <input type="file" name='Nome' class="form-control" id="Arquivo" placeholder="Digite a CLASSE DE PROCESSO">
             </div>
+       
+                    <div class="form-group">
+                        <label for="COMPETENCIA_codigo">Classe de Processo:</label>
+                        <select id="COMPETENCIA_codigo" name='COMPETENCIA_codigo' class="form-control">
+                            <option value="" selected disabled>Selecione</option>
+                            <?php 
+                                $sql = "SELECT * FROM CLASSE_PROCESSO";
+                                $response = mysqli_query($connection, $sql);
+                                $numRows = mysqli_num_rows($response);
+                                if($response && $numRows > 0)
+                                {
+                                    while ($line = mysqli_fetch_array($response))
+                                    {
+                                        $id = $line['Codigo'];
+                                        $value = $line['Nome'];
+                                        echo "<option value='$id'>$value</option>";
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+               
+
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
