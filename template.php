@@ -12,13 +12,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <?php include('../config/connection.php'); ?>
-    <?php include('../components/header.php'); ?>
+    <?php include('../../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
     <div class='container'>
         <!-- O conteúdo vai aqui -->
     </div>
     <!-- FIM DO CONTEUDO DA PAGINA -->
-    <?php include('../components/footer.php'); ?>
+    <?php include('../../components/footer.php'); ?>
 </body>
 </html>

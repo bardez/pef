@@ -17,8 +17,16 @@ header {
     flex-wrap: wrap;
 }
 
+header .inline-flex{
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1
+}
+
 .btn {
     margin-left: 10px;
+    margin-bottom: 5px;
     padding: 10px;
 }
 
@@ -42,4 +50,8 @@ footer .center{
 
 footer a{
     color: white;
+}
+
+.custom-form-title {
+    text-transform: uppercase;
 }
