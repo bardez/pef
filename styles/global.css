@@ -73,8 +73,8 @@ footer a{
 
 .search {
     position: absolute;
-    top: 3.5px;
-    left: 99%;  
+    top: 7.5px;
+    left: calc( 100% - 95px); 
     -webkit-transform: translateX(-99%) translateY(0%);
             transform: translateX(-99%) translateY(0%);
   }
@@ -213,6 +213,8 @@ footer a{
   /*********/
   /* MENU */
   /*********/
+
+  #login-nav input { margin-bottom: 15px; }
 
   #wrapper {
     padding-top: 75px;
