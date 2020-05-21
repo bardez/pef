@@ -46,7 +46,7 @@
 <body>
     <?php include('../../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
-    <div class="container p-2">
+    <div>
         <h4 class="custom-form-title">CADASTRO DE PARTICIPAÇÕES</h4>
         <hr>
         <form method='POST' action='edit.php'>

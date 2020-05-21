@@ -1,19 +1,21 @@
+  </div>
+</div>
 <footer class="page-footer font-small cyan darken-3">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 py-5">
+      <div class="col-md-12 py-4">
         <div class="center">
           <!-- Facebook -->
           <a class="fb-ic">
-            <i class="fa fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            <i class="fa fa-facebook-f fa-lg white-text ml-3 mr-3 fa-2x"> </i>
           </a>
           <!-- Twitter -->
           <a class="tw-ic">
-            <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            <i class="fa fa-twitter fa-lg white-text ml-3 mr-3 fa-2x"> </i>
           </a>
           <!--Instagram-->
           <a class="ins-ic">
-            <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            <i class="fa fa-instagram fa-lg white-text ml-3 mr-3 fa-2x"> </i>
           </a>
         </div>
       </div>

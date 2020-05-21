@@ -15,12 +15,12 @@
     <?php include('../../config/connection.php'); ?>
     <?php include('../../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
-    <div class="container p-2">
+    <div>
         <h4 class="custom-form-title">LISTA DE PARTICIPAÇÕES <span><a class='btn btn-success' href="insert.php"> + Adicionar</a></span></h4>
         <hr>
         <table class="table table-stripped">
-            <thead class="thead-dark">
-                <tr>
+            <thead>
+                <tr class='table-active'>
                 <th scope="col">#</th>
                 <th scope="col">Participação</th>
                 <th scope="col">Ações</th>

@@ -40,7 +40,7 @@
 <body>
     <?php include('../../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
-    <div class="container p-2">
+    <div>
         <h4 class="custom-form-title">CADASTRO DE TIPOS</h4>
         <hr>
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>

@@ -15,14 +15,100 @@
     <?php include('./config/connection.php'); ?>
     <?php include('./components/header.php'); ?>
     <!-- CONTEUDO DA PAGINA -->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                Pagina inicial
+    <?php if(!empty($_GET['q'])){?>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start max-content">
+                <strong class="d-inline-block mb-2 text-primary">World</strong>
+                <h6 class="mb-0">
+                    <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
+                </h6>
+                <div class="mb-1 text-muted small">Nov 12</div>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start max-content">
+                <strong class="d-inline-block mb-2 text-primary">World</strong>
+                <h6 class="mb-0">
+                    <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
+                </h6>
+                <div class="mb-1 text-muted small">Nov 12</div>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start max-content">
+                <strong class="d-inline-block mb-2 text-primary">World</strong>
+                <h6 class="mb-0">
+                    <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
+                </h6>
+                <div class="mb-1 text-muted small">Nov 12</div>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start max-content">
+                <strong class="d-inline-block mb-2 text-primary">World</strong>
+                <h6 class="mb-0">
+                    <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
+                </h6>
+                <div class="mb-1 text-muted small">Nov 12</div>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start max-content">
+                <strong class="d-inline-block mb-2 text-primary">BRASIL</strong>
+                <h6 class="mb-0">
+                    <a class="text-dark" href="#">Pedido de Impeachment da Presidente Dilma entregue à Câmara dos Deputados</a>
+                </h6>
+                <div class="mb-1 text-muted small">há 4 anos</div>
+                <p class="card-text mb-auto">Exmo Senhor Presidente da Câmara dos Deputados Federais da República Federativa do Brasil MARCOS AURÉLIO…</p>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Ver mais</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start max-content">
+                <strong class="d-inline-block mb-2 text-primary">World</strong>
+                <h6 class="mb-0">
+                    <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
+                </h6>
+                <div class="mb-1 text-muted small">Nov 12</div>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+    </div>
+    <?php } else { ?>
+        <h1 style="text-align: center;"> Bem vindo ao sistema P.E.F. Seu portal de peticionamento rápido e fácil!</h1>
+    <?php } ?>
     <?php include('./components/footer.php'); ?>
 </body>
 </html>

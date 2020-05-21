@@ -14,7 +14,7 @@
 <body>
     <?php include('../../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
-    <div class='container'>
+    <div>
         <!-- O conteúdo vai aqui -->
     </div>
     <!-- FIM DO CONTEUDO DA PAGINA -->
