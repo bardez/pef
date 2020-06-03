@@ -1,3 +1,58 @@
+<?php 
+    require_once('../../config/connection.php');
+    $id = '';
+    $pessoa = '';
+    $cpf = '';
+    $rg = '';
+    $orgao_emissor = '';
+    $nome = '';
+    $genero = '';
+    $cep = '';
+    $numero = '';
+    $complemento = '';
+    $participacao = '';
+    $estado_civil = '';
+    $nacionalidade = '';
+    $profissao = '';
+    if(!empty($_POST['cpf'])){
+        $id = $_POST['codigo'];
+        $pessoa = $_POST['pessoa'];
+        $cpf = $_POST['cpf'];
+        $rg = $_POST['rg'];
+        $orgao_emissor = $_POST['orgao_emissor'];
+        $nome = $_POST['nome'];
+        $genero = $_POST['genero'];
+        $cep = $_POST['cep'];
+        $numero = $_POST['numero'];
+        $complemento = $_POST['complemento'];
+        $participacao = $_POST['participacao'];
+        $estado_civil = $_POST['estado_civil'];
+        $nacionalidade = $_POST['nacionalidade'];
+        $profissao = $_POST['profissao'];
+        $sqlSelect = "SELECT * FROM PARTE WHERE CPF=?";
+        $cmd = mysqli_prepare($connection, $sqlSelect);
+        mysqli_stmt_bind_param($cmd, 's', $cpf);
+        mysqli_stmt_execute($cmd);
+        $result = mysqli_stmt_get_result($cmd);
+        if(mysqli_num_rows( $result ) == 1)
+        {
+            echo "CPF '$cpf' já cadastrado";
+        }
+        else {
+            $sqlInsert = "INSERT INTO PARTE ( Pessoa,CPF,RG,Orgao_Emissor,Nome,Genero,CEP,Numero,Complemento,PARTICIPACAO_Codigo,ESTADO_CIVIL_Codigo,NACIONALIDADE_Codigo,PROFISSAO_Codigo) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $cmd = mysqli_prepare($connection, $sqlInsert);
+            mysqli_stmt_bind_param($cmd,'sssssssssssss',$pessoa,$cpf,$rg,$orgao_emissor,$nome,$genero,$cep,$numero,$complemento,$participacao,$estado_civil,$nacionalidade,$profissao);
+            mysqli_stmt_execute($cmd);
+            $err = mysqli_stmt_error_list($cmd);
+            if( count($err) > 0 ) {
+                echo mysqli_stmt_error($cmd);
+            } else {
+                header("location: list.php");
+            }
+        }
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,34 +62,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/styles/global.css">
+	<link rel="stylesheet" href="/styles/lib.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.19.0/dist/sweetalert2.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.13.1/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
-    <?php include('../../config/connection.php'); ?>
     <?php include('../../components/header.php'); ?>
     <!-- INICIO DO CONTEUDO DA PAGINA -->
-    <div>
-        <h4 class="custom-form-title">CADASTRO DE PARTES</h4>
+    <div style="margin-top: 85px;">
+        <h4 class="custom-form-title">CADASTRO DE PARTE única</h4>
         <hr>
         <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" name='nome' class="form-control" id="nome" placeholder="Digite o Nome">
+            <div class="form-group label-floating">
+                <label  class="control-label" for="nome">Nome:</label>
+                <input type="text" name='nome' class="form-control" id="nome" title="Digite o Nome">
             </div>
             <div class="form-row">
                 <div class="col">
-                    <label for="pessoa">Pessoa:</label>
-                    <!-- <input type="text" name='pessoa' class="form-control" id="pessoa" placeholder="Digite a Pessoa"> -->
+                    <label  class="control-label" for="pessoa">Pessoa:</label>
+                    <!-- <input type="text" name='pessoa' class="form-control" id="pessoa" title="Digite a Pessoa"> -->
                     <select id="pessoa" name='pessoa' class="form-control">
                         <option value="F" selected>Física</option>
                         <option value="J">Jurídica</option>
                     </select>
                 </div>
                 <div class="col">
-                    <div class="form-group">
-                        <label for="genero">Gênero:</label>
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="genero">Gênero:</label>
                         <select id="genero" name='genero' class="form-control">
                             <option value="" selected disabled>Selecione</option>
                             <option value="M">Masculino</option>
@@ -45,48 +102,48 @@
             </div>
             <div class="form-row">
                 <div class="col">
-                    <div class="form-group">
-                        <label for="cpf">CPF:</label>
-                        <input type="text" name='cpf' class="form-control" id="cpf" placeholder="Digite o CPF">
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="cpf">CPF:</label>
+                        <input type="text" name='cpf' class="form-control" id="cpf" title="Digite o CPF">
                     </div>
                 </div>
                 <div class="col">
-                    <div class="form-group">
-                        <label for="rg">RG:</label>
-                        <input type="text" name='rg' class="form-control" id="rg" placeholder="Digite o RG">
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="rg">RG:</label>
+                        <input type="text" name='rg' class="form-control" id="rg" title="Digite o RG">
                     </div>
                 </div>
                 <div class="col">
-                    <div class="form-group">
-                        <label for="orgao_emissor">Órgão emissor:</label>
-                        <input type="text" name='orgao_emissor' class="form-control" id="orgao_emissor" placeholder="Digite o órgão emissor">
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="cep">CEP:</label>
-                        <input type="text" name='cep' class="form-control" id="cep" placeholder="Digite o CEP">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="numero">Número:</label>
-                        <input type="text" name='numero' class="form-control" id="numero" placeholder="Digite o Número">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="complemento">Complemento:</label>
-                        <input type="text" name='complemento' class="form-control" id="complemento" placeholder="Digite o Complemento">
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="orgao_emissor">Órgão emissor:</label>
+                        <input type="text" name='orgao_emissor' class="form-control" id="orgao_emissor" title="Digite o órgão emissor">
                     </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
-                    <div class="form-group">
-                        <label for="participacao">Participação:</label>
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="cep">CEP:</label>
+                        <input type="text" name='cep' class="form-control" id="cep" title="Digite o CEP">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="numero">Número:</label>
+                        <input type="text" name='numero' class="form-control" id="numero" title="Digite o Número">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="complemento">Complemento:</label>
+                        <input type="text" name='complemento' class="form-control" id="complemento" title="Digite o Complemento">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="participacao">Participação:</label>
                         <select id="participacao" name='participacao' class="form-control">
                             <option value="">Selecione</option>
                             <?php 
@@ -107,8 +164,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="form-group">
-                        <label for="estado_civil">Estado Civil:</label>
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="estado_civil">Estado Civil:</label>
                         <select id="estado_civil" name='estado_civil' class="form-control">
                             <option value="" selected disabled>Selecione</option>
                             <?php 
@@ -129,8 +186,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="form-group">
-                        <label for="nacionalidade">Nacionalidade:</label>
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="nacionalidade">Nacionalidade:</label>
                         <select id="nacionalidade" name='nacionalidade' class="form-control">
                             <option value="" selected disabled>Selecione</option>
                             <?php 
@@ -151,8 +208,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="form-group">
-                        <label for="profissao">Profissão:</label>
+                    <div class="form-group label-floating">
+                        <label  class="control-label" for="profissao">Profissão:</label>
                         <select id="profissao" name='profissao' class="form-control">
                             <option value="" selected disabled>Selecione</option>
                             <?php 
@@ -174,48 +231,9 @@
                 </div>
             </div>
             <button type="submit" name='submit' class="btn btn-primary">Cadastrar</button>
+            <a href='list.php' class="btn btn-success">Voltar</a>
         </form>
     </div>
-    <?php 
-    $id = $_POST['codigo'];
-    $pessoa = $_POST['pessoa'];
-    $cpf = $_POST['cpf'];
-    $rg = $_POST['rg'];
-    $orgao_emissor = $_POST['orgao_emissor'];
-    $nome = $_POST['nome'];
-    $genero = $_POST['genero'];
-    $cep = $_POST['cep'];
-    $numero = $_POST['numero'];
-    $complemento = $_POST['complemento'];
-    $participacao = $_POST['participacao'];
-    $estado_civil = $_POST['estado_civil'];
-    $nacionalidade = $_POST['nacionalidade'];
-    $profissao = $_POST['profissao'];
-    if(!empty($cpf)){
-        $sqlSelect = "SELECT * FROM PARTE WHERE CPF=?";
-        $cmd = mysqli_prepare($connection, $sqlSelect);
-        mysqli_stmt_bind_param($cmd, 's', $cpf);
-        mysqli_stmt_execute($cmd);
-        $result = mysqli_stmt_get_result($cmd);
-        if(mysqli_num_rows( $result ) == 1)
-        {
-            echo "CPF '$cpf' já cadastrado";
-        }
-        else {
-            $sqlInsert = "INSERT INTO PARTE ( Pessoa,CPF,RG,Orgao_Emissor,Nome,Genero,CEP,Numero,Complemento,PARTICIPACAO_Codigo,ESTADO_CIVIL_Codigo,NACIONALIDADE_Codigo,PROFISSAO_Codigo) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            $cmd = mysqli_prepare($connection, $sqlInsert);
-            mysqli_stmt_bind_param($cmd,'sssssssssssss',$pessoa,$cpf,$rg,$orgao_emissor,$nome,$genero,$cep,$numero,$complemento,$participacao,$estado_civil,$nacionalidade,$profissao);
-            mysqli_stmt_execute($cmd);
-            $err = mysqli_stmt_error_list($cmd);
-            if( count($err) > 0 ) {
-                echo mysqli_stmt_error($cmd);
-            } else {
-                header("location: ../listing/part.php");
-            }
-        }
-    }
-    ?>
     <!-- FIM DO CONTEUDO DA PAGINA -->
     <?php include('../../components/footer.php'); ?>
 </body>
